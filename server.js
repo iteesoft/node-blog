@@ -1,20 +1,38 @@
 const http = require('http');
 const fs = require('fs')
 
-const chelsea = {
-    "name": "Chelsea FC",
-    "nickname": "The blues",
-    "country": "England"
-}
+
 
 const HOSTNAME = process.env.HOSTNAME || "localhost";
 const PORT = process.env.PORT || 8080;
 
 const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "json");
+    res.setHeader("Content-Type", "text/html");
+    console.log(req.url, req.method);
 
-    fs.readFile('./chelsea.txt', (err, data)=> {
+    let path = './views/';
+
+    switch(req.url) {
+        case '/':
+            path += 'index.html';
+            res.statusCode = 200;
+            break;
+        case '/about':
+            path += 'about.html';
+            res.statusCode = 200;
+            break;
+        case '/about-us':    //redirect
+            res.statusCode = 301;
+            res.setHeader('Location', '/about');
+            res.end();
+            break;
+        default:
+            path += '404.html';
+            res.statusCode = 404;
+            break;
+    }
+
+    fs.readFile(path, (err, data)=> {
         if(err) {
             console.log(err);
             res.end();
