@@ -1,6 +1,6 @@
 const http = require('http');
 const fs = require('fs')
-
+const _ = require('lodash')
 
 
 const HOSTNAME = process.env.HOSTNAME || "localhost";
@@ -8,7 +8,10 @@ const PORT = process.env.PORT || 8080;
 
 const server = http.createServer((req, res) => {
     res.setHeader("Content-Type", "text/html");
-    console.log(req.url, req.method);
+
+    const num = _.random(0, 10);
+
+    console.log(num);
 
     let path = './views/';
 

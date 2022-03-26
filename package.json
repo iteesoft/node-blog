@@ -1,0 +1,23 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iteesoft/node-blog.git"
+  },
+  "author": "iteesoft",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iteesoft/node-blog/issues"
+  },
+  "homepage": "https://github.com/iteesoft/node-blog#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
